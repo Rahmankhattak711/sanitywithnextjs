@@ -19,7 +19,7 @@ export const headerSchema = defineType({
           type: 'object',
           fields: [
             { name: 'label', title: 'Label', type: 'string' },
-            { name: 'href', title: 'URL', type: 'url' },
+            { name: 'url', title: 'URL', type: 'string' },
           ],
         },
       ],

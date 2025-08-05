@@ -6,5 +6,5 @@ export const client = createClient({
   apiVersion: "2023-01-01",
   useCdn: false,
   token:
-    "skTnM1xdj2JH52wAXsaRpGsUnWiooo709pj1NYVhnT3VzNoRwuFiasrYXkKLn9CurczH6AFNJ0UdXyfhUByORJpWUjZQbSbaPIhwFguKqMqooGfo0OwKDHKR1gIiWCv28NGGvbeBHit2DBIcQv4EhJPL2cVQdJWfKTZbmtQq1jnhNrlX4Fku",
+    "skbxzGsL3bDRoRtWH6FjYqEWhohhbv0CDyQDtOE3bjPPN49PMtmm5PgPqBILb6fwXJuFBMofmNGkZj0cBcpdBQTP1Pa1ACW2mY9mmMjZERsMsfErfUYevALFHYFPpP4EK33xM08aOozRsvj8G1tF8t2KtLwqZJiQGcPR9pnA7ksB4x4R2H9T",
 });
