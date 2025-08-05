@@ -5,7 +5,7 @@ export default function Hero() {
     <section className=" py-20 px-6">
       <div className="max-w-3xl mx-auto text-center">
         <h1 className="text-4xl sm:text-5xl font-bold text-text mb-6 leading-tight">
-          Discover Your Next <br className="hidden sm:block" /> Favorite Book 📚
+          Discover Your Next <br className="hidden sm:block" /> Favorite Book
         </h1>
 
         <p className="text-muted text-lg mb-8">

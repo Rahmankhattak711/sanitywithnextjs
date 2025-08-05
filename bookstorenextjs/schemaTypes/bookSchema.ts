@@ -1,5 +1,4 @@
-import {defineField} from 'sanity'
-import {defineType} from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 export const bookSchema = defineType({
   name: 'book',
@@ -25,6 +24,50 @@ export const bookSchema = defineType({
       name: 'image',
       title: 'Image',
       type: 'image',
+    }),
+
+     defineField({
+      name: 'contant',
+      title: 'Block Content',
+      type: 'document',
+      fields: [
+        {
+          name: 'body',
+          title: 'Body',
+          type: 'array',
+          of: [
+            {
+              type: 'block',
+            },
+            {
+              type: 'image',
+            },
+          ],
+        },
+      ]
+    }),
+
+    defineField({
+      name: 'author',
+      title: 'Author',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'author'}],
+        },
+      ],
+    }),
+    defineField({
+      name: 'categories',
+      title: 'Categories',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'category'}],
+        },
+      ],
     }),
   ],
 })

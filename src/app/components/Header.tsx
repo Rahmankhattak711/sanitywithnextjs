@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { client } from "@/lib/sanity";
 import imageUrlBuilder from "@sanity/image-url";
+import Link from "next/link";
 
 const builder = imageUrlBuilder(client);
 
@@ -45,12 +46,12 @@ export default function Header() {
         <ul className="flex gap-6">
           {data?.navLinks?.map((link: any) => (
             <li key={link.label}>
-              <a
+              <Link
                 href={link.url}
                 className="text-gray-700 cursor-pointer font-medium"
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
