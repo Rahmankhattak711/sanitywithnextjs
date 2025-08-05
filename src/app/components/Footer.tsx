@@ -5,7 +5,6 @@ import { client } from "@/lib/sanity";
 import imageUrlBuilder from "@sanity/image-url";
 
 const builder = imageUrlBuilder(client);
-
 function urlFor(source: any) {
   return builder.image(source);
 }
@@ -27,10 +26,12 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-gray-100 border-t border-gray-200  py-8 px-4 text-center md:text-left">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="bg-white border-t border-gray-200 py-10 px-6 shadow-inner">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Footer Text */}
-        <p className="text-muted text-sm">{data?.text }</p>
+        <p className="text-sm text-gray-500 text-center md:text-left">
+          {data?.text || "© 2025 BookStore. All rights reserved."}
+        </p>
 
         {/* Social Links */}
         <ul className="flex gap-4">
@@ -40,7 +41,7 @@ export default function Footer() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 cursor-pointer font-medium"
+                className="text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm font-medium"
               >
                 {link.platform}
               </a>
