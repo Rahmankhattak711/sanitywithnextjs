@@ -44,9 +44,9 @@ export default function Header() {
       <nav>
         <ul className="flex gap-6">
           {data?.navLinks?.map((link: any) => (
-            <li key={link.href}>
+            <li key={link.label}>
               <a
-                href={link.href}
+                href={link.url}
                 className="text-gray-700 cursor-pointer font-medium"
               >
                 {link.label}

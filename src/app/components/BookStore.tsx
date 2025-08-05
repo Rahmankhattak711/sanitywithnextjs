@@ -3,6 +3,7 @@
 import { client } from "@/lib/sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import React, { useState, useEffect } from "react";
+import { FaTrash } from "react-icons/fa";
 
 const builder = imageUrlBuilder(client);
 function urlFor(source: any) {
@@ -25,22 +26,36 @@ export default function BookStore() {
     setBooks(result);
   }
 
+  // async function deleteBook(bookId: string) {
+  //   try {
+  //     await client.delete(bookId);
+  //     console.log("Book deleted:", bookId);
+  //     getBooks();
+  //   } catch (err: any) {
+  //     console.error("Failed to delete:", err.message);
+  //   }
+  // }
+
   useEffect(() => {
     getBooks();
   }, []);
 
   return (
     <div className="px-6 py-12 bg-gray-50 min-h-screen">
-      <h1 className="text-4xl font-bold  mb-12 text-gray-800">
-        📚 Explore Our Bookstore
+      <h1 className="text-4xl font-bold text-center mb-12 text-gray-800">
+        📚 Bookstore
       </h1>
 
-      <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid relative gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {books.map((book) => (
           <div
             key={book._id}
-            className="bg-white rounded-2xl shadow-lg overflow-hidden transition hover:shadow-xl"
+            className="bg-white rounded-2xl shadow-sm overflow-hidden transition hover:shadow-xl"
           >
+            {/* <FaTrash
+              onClick={() => deleteBook(book._id)}
+              className="size-6 text-red-500 absolute cursor-pointer"
+            /> */}
             {book.imageUrl && (
               <img
                 src={book.imageUrl}
@@ -57,9 +72,10 @@ export default function BookStore() {
                   ${book.price}
                 </span>
               </div>
-              <p className="text-gray-600 text-sm mb-2 line-clamp-3">
+              <p className="text-gray-600 text-sm mb-2 line-clamp-2">
                 {book.description}
               </p>
+
               {book.publishedAt && (
                 <p className="text-gray-400 text-xs">
                   Published:{" "}
