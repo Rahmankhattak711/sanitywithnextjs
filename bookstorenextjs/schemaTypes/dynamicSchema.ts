@@ -1,6 +1,6 @@
 import {defineField, defineType} from 'sanity'
 
-export const dynamicSchema = {
+export const dynamicSchema = defineType({
   name: 'dynamicGenPage',
   title: 'Dynamic Gen Page',
   type: 'document',
@@ -29,27 +29,15 @@ export const dynamicSchema = {
           title: 'Body',
           type: 'array',
           of: [
-            {
-              type: 'block',
-            },
-            {
-              type: 'image',
-            },
-            {
-              type: 'pagination',
-            },
-            {
-              type: 'product',
-            },
-            {
-              type: 'hero',
-            },
-            {
-              type: 'contact',
-            },
+            {type: 'block'},
+            {type: 'image'},
+            {type: 'pagination'},
+            {type: 'product'},
+            {type: 'hero'},
+            {type: 'contact'},
           ],
         }),
       ],
     }),
   ],
-}
+})
