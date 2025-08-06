@@ -56,6 +56,8 @@ export default async function BookDetailPage({ params }: { params: { id: string 
         {book.contant?.body && (
           <div className="prose prose-lg prose-blue max-w-none mt-8">
             <PortableText value={book.contant.body} />
+            <PortableText value={book.contant.body} />
+            <PortableText value={book.contant.body.asset} />
           </div>
         )}
 

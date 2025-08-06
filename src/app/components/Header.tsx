@@ -35,7 +35,7 @@ export default function Header() {
             <img
               src={urlFor(data.logo).width(48).height(48).url()}
               alt="Logo"
-              className="w-12 h-12 rounded-full object-cover hover:scale-105 transition-transform duration-300"
+              className="w-12 h-12 border-[0.1px] border-b-teal-600 border-t-teal-600 rounded-full object-cover hover:scale-105 transition-transform duration-300"
             />
           )}
           <span className="text-2xl font-bold text-gray-800 tracking-tight">
