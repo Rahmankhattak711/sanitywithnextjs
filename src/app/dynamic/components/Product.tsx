@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { client } from "@/lib/sanity";
 import NotFound from "@/app/not-found";
 import Loading from "@/app/loading";
+import { fetchData } from "@/lib/servics";
 
 export default function Product() {
   const { slug } = useParams();
@@ -12,40 +13,7 @@ export default function Product() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (!slug) return;
-
-        const data = await client.fetch(
-          `*[_type == "dynamicGenPage" && slug.current == $slug][0]{
-            body {
-              body[] {
-                _type,
-                _key,
-                title,
-                description,
-                price,
-                image {
-                  asset->{
-                    url
-                  }
-                }
-              }
-            }
-          }`,
-          { slug }
-        );
-
-        const product = data?.body?.body?.find((b: any) => b._type === "product");
-        setProductBlock(product);
-      } catch (err) {
-        console.error("Error fetching product:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
+    fetchData({ slug, setProductBlock, setLoading, client, value: "product" })
   }, [slug]);
 
   if (loading) return <Loading />;
